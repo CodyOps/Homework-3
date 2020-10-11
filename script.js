@@ -1,6 +1,16 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+var passwordLength;
+var lowerCaseConfirm;
+var upperCaseConfirm;
+var numberChoiceConfirm;
+var specialCharactersConfirm;
+
+var bigArrayOfAllCharacters []]
+
+var password = "";
+
 //character set to pick from
 var lowerCase = [
   "a",
@@ -131,7 +141,7 @@ function generatePassword() {
   )
 
   var specialCharactersConfirm = confirm (
-    "Would you like special characters to included?"
+    "Would you like special characters included?"
   )
 
   for (let i = 0; i < parseInt(passwordLength); i++) {
@@ -142,7 +152,12 @@ function generatePassword() {
     if (upperCaseConfirm) {
        bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(upperCase)
     }
-    if ()
+    if (numberChoiceConfirm) {
+      bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(numberChoice)
+    }
+    if (specialCharactersConfirm) {
+      bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(specialCharacters)
+    }
 
     var randomIndex = Math.floor(Math.random() * bigArrayOfAllCharacters.length);
     password += bigArrayOfAllCharacters[randomIndex]
@@ -153,12 +168,7 @@ function generatePassword() {
   function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-
     passwordText.value = password;
-  };
-
+  }
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)
-
-// Function that will have the randomly generated password written on the page
-function displayPassword()
+generateBtn.addEventListener("click", writePassword);
