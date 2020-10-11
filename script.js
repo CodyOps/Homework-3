@@ -7,7 +7,7 @@ var upperCaseConfirm;
 var numberChoiceConfirm;
 var specialCharactersConfirm;
 
-var bigArrayOfAllCharacters []]
+var bigArrayOfAllCharacters;
 
 var password = "";
 
@@ -136,39 +136,50 @@ function generatePassword() {
     "Would you like uppercase characters included?"
   );
 
-  var numberChoiceConfirm = confirm (
-    "Would you like numbers included?"
-  )
+  var numberChoiceConfirm = confirm("Would you like numbers included?");
 
-  var specialCharactersConfirm = confirm (
+  var specialCharactersConfirm = confirm(
     "Would you like special characters included?"
-  )
+  );
 
   for (let i = 0; i < parseInt(passwordLength); i++) {
     let bigArrayOfAllCharacters = [];
     if (lowerCaseConfirm) {
-       bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(lowerCase)
+      bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(lowerCase);
     }
     if (upperCaseConfirm) {
-       bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(upperCase)
+      bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(upperCase);
     }
     if (numberChoiceConfirm) {
-      bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(numberChoice)
+      bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(numberChoice);
     }
     if (specialCharactersConfirm) {
-      bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(specialCharacters)
+      bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(
+        specialCharacters
+      );
     }
 
-    var randomIndex = Math.floor(Math.random() * bigArrayOfAllCharacters.length);
-    password += bigArrayOfAllCharacters[randomIndex]
+    var randomIndex = Math.floor(
+      Math.random() * bigArrayOfAllCharacters.length
+    );
+    password += bigArrayOfAllCharacters[randomIndex];
     console.log("Final password: " + password);
   }
+}
 
-
-  function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-  }
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+writePassword();
+
+function displayPassword() {
+  button.textContent = password;
+  password.appendChild(button);
+}
+
+displayPassword();
