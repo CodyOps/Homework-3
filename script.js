@@ -136,7 +136,9 @@ function generatePassword() {
   //prompts the user if the password length is not within length limits
   if (parseInt(passwordLength) < 8 || parseInt(passwordLength) > 128) {
     alert("Please choose a valid password length.");
-    return;
+    var passwordLength = prompt(
+      "Please choose the number of characters you would like between 8 and 128."
+    );
   }
 
   // Stores other characters user may want into variables
