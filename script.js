@@ -133,6 +133,12 @@ function generatePassword() {
     "Please choose the number of characters you would like between 8 and 128."
   );
 
+  //prompts the user if the password length is not within length limits
+  if (parseInt(passwordLength) < 8 || parseInt(passwordLength) > 128) {
+    alert("Please choose a valid password length.");
+    return;
+  }
+
   // Stores other characters user may want into variables
   var lowerCaseConfirm = confirm(
     "Would you like lowercase characters included?"
@@ -147,12 +153,6 @@ function generatePassword() {
   var specialCharactersConfirm = confirm(
     "Would you like special characters included?"
   );
-
-  //prompts the user if the password length is not within length limits
-  if (parseInt(passwordLength) < 8 && parseInt(passwordLength) > 128) {
-    alert("Please choose a valid password length.");
-    return;
-  }
 
   //for loop that turns passwordLength prompt to an integer
   for (let i = 0; i < parseInt(passwordLength); i++) {
