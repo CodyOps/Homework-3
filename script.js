@@ -195,9 +195,11 @@ generateBtn.addEventListener("click", writePassword);
 //calling the function
 writePassword();
 
+//function to display password on the screen for the user
 function displayPassword() {
   var addPassword = document.querySelector("#password");
   addPassword.value = password;
 }
 
+//calling the function to display password to user
 displayPassword();
