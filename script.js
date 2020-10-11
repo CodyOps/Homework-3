@@ -6,10 +6,11 @@ var lowerCaseConfirm;
 var upperCaseConfirm;
 var numberChoiceConfirm;
 var specialCharactersConfirm;
-
 var bigArrayOfAllCharacters;
 
 var password = "";
+
+var addPassword = document.querySelector("#password");
 
 //character set to pick from
 var lowerCase = [
@@ -142,6 +143,11 @@ function generatePassword() {
     "Would you like special characters included?"
   );
 
+  if (parseInt(passwordLength) < 8 && parseInt(passwordLength) > 128) {
+    alert("Please choose a valid password length.");
+    return;
+  }
+
   for (let i = 0; i < parseInt(passwordLength); i++) {
     let bigArrayOfAllCharacters = [];
     if (lowerCaseConfirm) {
@@ -178,8 +184,8 @@ generateBtn.addEventListener("click", writePassword);
 writePassword();
 
 function displayPassword() {
-  button.textContent = password;
-  password.appendChild(button);
+  var addPassword = document.querySelector("#password");
+  addPassword.value = password;
 }
 
 displayPassword();
