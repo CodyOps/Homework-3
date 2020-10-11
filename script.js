@@ -1,18 +1,15 @@
 // Assignment Code
+//Defining variable that will constain confirms and arrays
 var generateBtn = document.querySelector("#generate");
-
 var passwordLength;
 var lowerCaseConfirm;
 var upperCaseConfirm;
 var numberChoiceConfirm;
 var specialCharactersConfirm;
-var bigArrayOfAllCharacters;
-
 var password = "";
-
 var addPassword = document.querySelector("#password");
 
-//character set to pick from
+//Arrays containing possible character choices
 var lowerCase = [
   "a",
   "b",
@@ -106,6 +103,11 @@ var specialCharacters = [
   "~",
 ];
 
+//Final big array of all character type the user wants
+var bigArrayOfAllCharacters;
+
+//END OF VARIABLES
+
 //PSEUDOCODE MAPPING OUTLINE:
 //1. When button is clicked then prompts password criteria
 //2. When prompted for password criteria then select criteria for password
@@ -122,8 +124,9 @@ var specialCharacters = [
 //use a variable to hold password ""
 //for-loop
 
-// Write password to the #password input
+//END OF PESUDOCODE OUTLINE:
 
+//Function to ask user input for password
 function generatePassword() {
   var passwordLength = prompt(
     "Please choose the number of characters you would like between 8 and 128."
