@@ -128,10 +128,12 @@ var bigArrayOfAllCharacters;
 
 //Function to ask user input for password
 function generatePassword() {
+  //Stores character length in passwordLength variable
   var passwordLength = prompt(
     "Please choose the number of characters you would like between 8 and 128."
   );
 
+  // Stores other characters user may want into variables
   var lowerCaseConfirm = confirm(
     "Would you like lowercase characters included?"
   );
@@ -146,12 +148,15 @@ function generatePassword() {
     "Would you like special characters included?"
   );
 
+  //prompts the user if the password length is not within length limits
   if (parseInt(passwordLength) < 8 && parseInt(passwordLength) > 128) {
     alert("Please choose a valid password length.");
     return;
   }
 
+  //for loop that turns passwordLength prompt to an integer
   for (let i = 0; i < parseInt(passwordLength); i++) {
+    //create a large array that adds arrays that the user wants
     let bigArrayOfAllCharacters = [];
     if (lowerCaseConfirm) {
       bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(lowerCase);
@@ -168,14 +173,17 @@ function generatePassword() {
       );
     }
 
+    //randomly selects characters from bug array and builds on last addition
     var randomIndex = Math.floor(
       Math.random() * bigArrayOfAllCharacters.length
     );
     password += bigArrayOfAllCharacters[randomIndex];
+    //logging password to check functionallity in console
     console.log("Final password: " + password);
   }
 }
 
+//function will run previous function and document the password into the html id
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -184,6 +192,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+//calling the function
 writePassword();
 
 function displayPassword() {
