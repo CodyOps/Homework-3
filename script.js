@@ -118,30 +118,37 @@ function generatePassword() {
     "Please choose the number of characters you would like between 8 and 128."
   );
 
-  var lowerCaseLength = prompt(
-    "How many lowercase characters would you like to have?"
+  var lowerCaseConfirm = confirm(
+    "Would you like lowercase characters included?"
   );
 
-  var upperCaseLength = prompt(
-    "How many uppercase characters would you like to have?"
+  var upperCaseConfirm = confirm(
+    "Would you like uppercase characters included?"
   );
 
-  for (let i = 0; i < passwordLength.length; i++) {
-    //get the character set
-    var characterSet = [
-      "lowerCase",
-      "upperCase",
-      "numberChoice",
-      "specialCharacters"];
+  var numberChoiceConfirm = confirm (
+    "Would you like numbers included?"
+  )
 
-        var randomIndex = Math.floor(Math.random() * character_set.length); {
-      password += characterSet[randomIndex];
+  var specialCharactersConfirm = confirm (
+    "Would you like special characters to included?"
+  )
+
+  for (let i = 0; i < parseInt(passwordLength); i++) {
+    let bigArrayOfAllCharacters = [];
+    if (lowerCaseConfirm) {
+       bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(lowerCase)
     }
+    if (upperCaseConfirm) {
+       bigArrayOfAllCharacters = bigArrayOfAllCharacters.concat(upperCase)
+    }
+    if ()
+
+    var randomIndex = Math.floor(Math.random() * bigArrayOfAllCharacters.length);
+    password += bigArrayOfAllCharacters[randomIndex]
     console.log("Final password: " + password);
   }
 
-var password =
-  //do they want lowercase? if true pull a random letter from the lowerCase array
 
   function writePassword() {
     var password = generatePassword();
@@ -151,9 +158,7 @@ var password =
   };
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword){
-  generatePassword();
-}
+generateBtn.addEventListener("click", writePassword)
 
 // Function that will have the randomly generated password written on the page
-function displayPassword() {}
+function displayPassword()
